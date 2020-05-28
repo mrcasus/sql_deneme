@@ -287,7 +287,9 @@ class NoteDetailState extends State<NoteDetail> {
   // Save data to database
   void _save() async {
     moveToLastScreen();
-
+    if(barkodController.text.length > 0){
+      note.barkod = barkodController.text;
+    }
     note.date = DateFormat.yMMMd().format(DateTime.now());
     int result;
     if (note.id != null) {
